@@ -1,42 +1,39 @@
+// PASSWORD
 function checkPass() {
-  const pass = document.getElementById("pass").value;
-  if (pass === "20022004") {
+  const v = document.getElementById("pass").value;
+  if (v === "20022004") {
     window.location.href = "home.html";
   } else {
     document.getElementById("error").innerText = "Wrong. Try again.";
   }
 }
 
+// MUSIC
 function toggleMusic() {
-  const m = document.getElementById("bgm");
-  m.paused ? m.play() : m.pause();
+  const audio = document.getElementById("bgm");
+  const vinyl = document.querySelector(".vinyl");
+
+  if (audio.paused) {
+    audio.play();
+    vinyl.classList.add("playing");
+  } else {
+    audio.pause();
+    vinyl.classList.remove("playing");
+  }
 }
 
-const texts = [
-  "I notice everything about you.",
-  "Love isn’t soft. It’s deliberate.",
-  "You feel like fate.",
-  "Every memory leads back to you.",
-  "I promise to choose you.",
-  "Your birthday feels like destiny."
-];
-
-function showFlash(i) {
-  const f = document.getElementById("flashcard");
-  f.innerText = texts[i];
-  f.style.display = "block";
-}
-
-function hideFlash() {
-  document.getElementById("flashcard").style.display = "none";
-}
-
-// Typing effect
-const el = document.querySelector(".typing");
-if (el) {
-  const text = el.dataset.text;
+// TYPING
+function startTyping(text) {
   let i = 0;
-  setInterval(() => {
-    if (i < text.length) el.innerText += text[i++];
-  }, 80);
+  const el = document.getElementById("type");
+  el.innerHTML = "";
+
+  function type() {
+    if (i < text.length) {
+      el.innerHTML += text.charAt(i);
+      i++;
+      setTimeout(type, 60);
+    }
+  }
+  type();
 }

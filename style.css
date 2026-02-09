@@ -1,49 +1,115 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600&family=Inter:wght@300;400&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
-  font-family: 'Playfair Display', serif;
-  background: radial-gradient(#2b0f14, #0b0506);
-  color: #f5f1ed;
   height: 100vh;
+  font-family: 'Inter', sans-serif;
+  background: radial-gradient(circle at top, #2b0f14, #0b0506);
+  color: #f5f1ed;
+  overflow: hidden;
 }
 
-.gate, .home, .letter, .glass {
+/* global gif layer */
+.bg-gif {
+  position: fixed;
+  inset: 0;
+  background: url("assets/glitch.gif") center/cover no-repeat;
+  opacity: 0.22;
+  z-index: -2;
+}
+
+/* center layout */
+.center {
+  height: 100vh;
   display: flex;
-  align-items: center;
-  justify-content: center;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
 }
 
-input, button {
-  padding: 12px;
-  margin: 8px;
-  background: transparent;
-  border: 1px solid #f4c2c2;
-  color: #f4c2c2;
+/* headings */
+h1 {
+  font-family: 'Playfair Display', serif;
+  font-size: 3rem;
+  letter-spacing: 1px;
 }
 
+/* buttons (NOT TACKY) */
+.btn {
+  margin: 12px;
+  padding: 18px 36px;
+  background: rgba(0,0,0,0.5);
+  border: 1px solid rgba(255,255,255,0.2);
+  color: #f5f1ed;
+  cursor: pointer;
+  transition: 0.4s;
+  position: relative;
+  overflow: hidden;
+}
+
+.btn::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(120deg, transparent, rgba(139,30,63,0.4), transparent);
+  transform: translateX(-100%);
+  transition: 0.6s;
+}
+
+.btn:hover::after {
+  transform: translateX(100%);
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  border-color: #8b1e3f;
+}
+
+/* grid */
 .grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 20px;
   margin-top: 40px;
 }
 
-.card {
-  padding: 30px;
-  background: rgba(255,255,255,0.05);
+/* vinyl */
+.vinyl {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 80px;
+  height: 80px;
+  background: url("assets/vinyl.png") center/cover no-repeat;
+  border-radius: 50%;
   cursor: pointer;
-  transition: 0.3s;
+  animation: spin 4s linear infinite;
+  animation-play-state: paused;
 }
 
-.card:hover {
-  background: #8b1e3f;
+.playing {
+  animation-play-state: running;
 }
 
-#flashcard {
-  display: none;
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* overlays */
+.overlay {
   position: fixed;
   inset: 0;
-  background: rgba(0,0,0,0.9);
-  padding: 100px;
-  font-size: 1.5rem;
+  background: rgba(0,0,0,0.6);
+}
+
+/* typing text */
+#type {
+  font-size: 1.3rem;
+  max-width: 700px;
+  line-height: 1.8;
 }

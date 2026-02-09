@@ -1,29 +1,22 @@
-<!DOCTYPE html>
-<html>
-<head>
-  <title>You.</title>
-  <link rel="stylesheet" href="style.css">
-</head>
-<body class="home">
+<body>
+<div class="bg-gif"></div>
 
 <audio id="bgm" src="assets/bgm.mp3" loop></audio>
-<button class="music-btn" onclick="toggleMusic()">🎧</button>
+<div class="vinyl" onclick="toggleMusic()"></div>
 
-<h1 class="typing" data-text="Hello, you. I've been waiting."></h1>
+<div class="center">
+  <h1>Hello, you. I’ve been waiting.</h1>
 
-<div class="grid">
-  <div class="card" onclick="location.href='letter.html'">💌 Letter</div>
-  <div class="card" onclick="showFlash(0)">🖤 Obsession</div>
-  <div class="card" onclick="showFlash(1)">🌹 Love</div>
-  <div class="card" onclick="showFlash(2)">🔪 Truth</div>
-  <div class="card" onclick="location.href='glass.html'">🧊 Glass Box</div>
-  <div class="card" onclick="showFlash(3)">📖 Memories</div>
-  <div class="card" onclick="showFlash(4)">✨ Promises</div>
-  <div class="card" onclick="showFlash(5)">🎂 Feb 20</div>
+  <div class="grid">
+    <button class="btn" onclick="location.href='letter.html'">💌 Letter</button>
+    <button class="btn" onclick="location.href='obsession.html'">🖤 Obsession</button>
+    <button class="btn" onclick="location.href='love.html'">🌹 Love</button>
+    <button class="btn" onclick="location.href='truth.html'">🔪 Truth</button>
+    <button class="btn" onclick="location.href='glass.html'">🧊 Glass Box</button>
+    <button class="btn" onclick="location.href='memories.html'">📖 Memories</button>
+    <button class="btn" onclick="location.href='feb20.html'">🎂 Feb 20</button>
+  </div>
 </div>
-
-<div id="flashcard" onclick="hideFlash()"></div>
 
 <script src="script.js"></script>
 </body>
-</html>
