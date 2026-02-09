@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>You.</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body class="home">
+
+<audio id="bgm" src="assets/bgm.mp3" loop></audio>
+<button class="music-btn" onclick="toggleMusic()">🎧</button>
+
+<h1 class="typing" data-text="Hello, you. I've been waiting."></h1>
+
+<div class="grid">
+  <div class="card" onclick="location.href='letter.html'">💌 Letter</div>
+  <div class="card" onclick="showFlash(0)">🖤 Obsession</div>
+  <div class="card" onclick="showFlash(1)">🌹 Love</div>
+  <div class="card" onclick="showFlash(2)">🔪 Truth</div>
+  <div class="card" onclick="location.href='glass.html'">🧊 Glass Box</div>
+  <div class="card" onclick="showFlash(3)">📖 Memories</div>
+  <div class="card" onclick="showFlash(4)">✨ Promises</div>
+  <div class="card" onclick="showFlash(5)">🎂 Feb 20</div>
+</div>
+
+<div id="flashcard" onclick="hideFlash()"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
